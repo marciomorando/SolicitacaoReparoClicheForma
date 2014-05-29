@@ -40,6 +40,7 @@ public class Solicitacao_ReparoCliche extends JPanel {
 
     public Solicitacao_ReparoCliche() {
         initComponents();
+        //masterTable.setVisible(false);
 
 
 
@@ -363,8 +364,8 @@ public class Solicitacao_ReparoCliche extends JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(masterScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clicheLabel)
                     .addComponent(clicheField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -397,9 +398,7 @@ public class Solicitacao_ReparoCliche extends JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(observacaoLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(observacaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(observacaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(statusLabel)
@@ -429,8 +428,14 @@ public class Solicitacao_ReparoCliche extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == statusField) {
+            if (evt.getSource() == horaRetornoClicheField) {
+                Solicitacao_ReparoCliche.this.horaRetornoClicheFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == statusField) {
                 Solicitacao_ReparoCliche.this.statusFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == ipMicroField) {
+                Solicitacao_ReparoCliche.this.ipMicroFieldActionPerformed(evt);
             }
             else if (evt.getSource() == saveButton) {
                 Solicitacao_ReparoCliche.this.saveButtonActionPerformed(evt);
@@ -455,12 +460,6 @@ public class Solicitacao_ReparoCliche extends JPanel {
             }
             else if (evt.getSource() == jButton4) {
                 Solicitacao_ReparoCliche.this.jButton4ActionPerformed(evt);
-            }
-            else if (evt.getSource() == horaRetornoClicheField) {
-                Solicitacao_ReparoCliche.this.horaRetornoClicheFieldActionPerformed(evt);
-            }
-            else if (evt.getSource() == ipMicroField) {
-                Solicitacao_ReparoCliche.this.ipMicroFieldActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents

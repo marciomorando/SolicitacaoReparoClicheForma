@@ -34,6 +34,7 @@ import javax.persistence.Transient;
     @NamedQuery(name = "SOPASTAStatusCliche.findByDataAlteracao", query = "SELECT s FROM SOPASTAStatusCliche s WHERE s.dataAlteracao = :dataAlteracao"),
     @NamedQuery(name = "SOPASTAStatusCliche.findByHoraAlteracao", query = "SELECT s FROM SOPASTAStatusCliche s WHERE s.horaAlteracao = :horaAlteracao"),
     @NamedQuery(name = "SOPASTAStatusCliche.findByObsAlteracao", query = "SELECT s FROM SOPASTAStatusCliche s WHERE s.obsAlteracao = :obsAlteracao"),
+     @NamedQuery(name = "SOPASTAStatusCliche.findByObsRetorno", query = "SELECT s FROM SOPASTAStatusCliche s WHERE s.obsRetorno = :obsRetorno"),
     @NamedQuery(name = "SOPASTAStatusCliche.findByHost", query = "SELECT s FROM SOPASTAStatusCliche s WHERE s.host = :host")})
 public class SOPASTAStatusCliche implements Serializable {
     @Transient
@@ -57,6 +58,8 @@ public class SOPASTAStatusCliche implements Serializable {
     private Date horaAlteracao;
     @Column(name = "ObsAlteracao")
     private String obsAlteracao;
+    @Column(name = "ObsRetorno")
+    private String obsRetorno;
     @Column(name = "Host")
     private String host;
 
@@ -136,6 +139,25 @@ public class SOPASTAStatusCliche implements Serializable {
         this.obsAlteracao = obsAlteracao;
         changeSupport.firePropertyChange("obsAlteracao", oldObsAlteracao, obsAlteracao);
     }
+    
+    
+     public String getObsRetorno() {
+        return obsRetorno;
+    }
+
+    public void setObsRetorno(String obsRetorno) {
+        String oldObsRetorno = this.obsRetorno;
+        this.obsRetorno = obsRetorno;
+        changeSupport.firePropertyChange("obsRetorno", oldObsRetorno, obsRetorno);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     public String getHost() {
         

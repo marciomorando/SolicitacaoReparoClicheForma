@@ -101,6 +101,9 @@
               <Subbinding sourcePath="${obsAlteracao}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
+              <Subbinding sourcePath="${obsRetorno}">
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
             </BindingProperty>
           </BindingProperties>
         </Component>

@@ -106,6 +106,9 @@ public class Altera_Cliche extends JPanel {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${obsAlteracao}"));
         columnBinding.setColumnName("Obs Alteracao");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${obsRetorno}"));
+        columnBinding.setColumnName("Obs Retorno");
+        columnBinding.setColumnClass(String.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${host}"));
         columnBinding.setColumnName("Host");
         columnBinding.setColumnClass(String.class);
@@ -146,6 +149,8 @@ public class Altera_Cliche extends JPanel {
         bindingGroup.addBinding(binding);
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), clicheField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
         bindingGroup.addBinding(binding);
+
+        clicheField.addActionListener(formListener);
 
         statusField.setEditable(false);
 
@@ -224,9 +229,9 @@ public class Altera_Cliche extends JPanel {
                                     .addComponent(clicheLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(tipoMaterialLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tipoMaterialField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(clicheField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(clicheField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(tipoMaterialField))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(84, 84, 84)
@@ -305,6 +310,9 @@ public class Altera_Cliche extends JPanel {
             else if (evt.getSource() == jButton1) {
                 Altera_Cliche.this.jButton1ActionPerformed(evt);
             }
+            else if (evt.getSource() == clicheField) {
+                Altera_Cliche.this.clicheFieldActionPerformed(evt);
+            }
         }
     }// </editor-fold>//GEN-END:initComponents
 
@@ -381,13 +389,28 @@ public class Altera_Cliche extends JPanel {
      FabricaDeConexao fab = new FabricaDeConexao();
      fab.abrirConexao();
      
-     if(statusField.getText().equals("A")){
+     if(statusField.getText().equals("I")){
+       String sql = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoAtivo";   
+          try{
+               stmt = (Statement) conn.createStatement();
+                    stmt.execute(sql);
+                    stmt.close();
+                     } catch (SQLException ex) {
+                    Logger.getLogger(Altera_Cliche.class.getName()).log(Level.SEVERE, null, ex);
+          }
+     
+     }
+     
+     else if(statusField.getText().equals("A")){
         String sql = "UPDATE TrimboxTeste.dbo.SOPASTA_SolicitacaoReparoCliche "
                 + "SET Status = 'Fechada' WHERE Cliche = '"+ clicheField.getText() +"'  ";
+        
+        String sql2 = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoInativo";
         
                 try {
                     stmt = (Statement) conn.createStatement();
                     stmt.execute(sql);
+                    stmt.execute(sql2);
                     stmt.close();
                      } catch (SQLException ex) {
                     Logger.getLogger(Altera_Cliche.class.getName()).log(Level.SEVERE, null, ex);
@@ -441,6 +464,10 @@ public class Altera_Cliche extends JPanel {
         
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void clicheFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clicheFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clicheFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField clicheField;

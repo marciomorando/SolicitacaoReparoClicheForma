@@ -56,6 +56,9 @@ public class Visualizar_Cliche extends javax.swing.JFrame {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${obsAlteracao}"));
         columnBinding.setColumnName("Obs Alteracao");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${obsRetorno}"));
+        columnBinding.setColumnName("Obs Retorno");
+        columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         jScrollPane1.setViewportView(jTable1);

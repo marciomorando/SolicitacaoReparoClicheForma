@@ -115,9 +115,9 @@ public class TelaAtivoInativoCliche extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(jRadioButton1.isSelected()){
-            Altera_Cliche.statusField.setText("A");
+            Altera_Cliche1.statusField.setText("A");
         }else if(jRadioButton2.isSelected()){
-            Altera_Cliche.statusField.setText("I");
+            Altera_Cliche1.statusField.setText("I");
         }else{
             JOptionPane.showMessageDialog(null,"SOPASTA - Selecione o Status ATIVO ou INATIVO!");
         }

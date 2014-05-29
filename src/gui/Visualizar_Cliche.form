@@ -121,27 +121,24 @@
           <BindingProperties>
             <BindingProperty name="elements" source="sOPASTAStatusClicheList" target="jTable1" targetPath="elements" updateStrategy="0" immediately="true">
               <Subbinding sourcePath="${tipoMaterial}">
-                <BindingParameter name="NAME" value="Tipo Material"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
               <Subbinding sourcePath="${cliche}">
-                <BindingParameter name="NAME" value="Cliche"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
               <Subbinding sourcePath="${status}">
-                <BindingParameter name="NAME" value="Status"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Character.class"/>
               </Subbinding>
               <Subbinding sourcePath="${horaAlteracao}">
-                <BindingParameter name="NAME" value="Hora Alteracao"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="java.util.Date.class"/>
               </Subbinding>
               <Subbinding sourcePath="${dataAlteracao}">
-                <BindingParameter name="NAME" value="Data Alteracao"/>
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="java.util.Date.class"/>
               </Subbinding>
               <Subbinding sourcePath="${obsAlteracao}">
-                <BindingParameter name="NAME" value="Obs Alteracao"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+              </Subbinding>
+              <Subbinding sourcePath="${obsRetorno}">
                 <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
               </Subbinding>
             </BindingProperty>
