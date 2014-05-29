@@ -12,10 +12,10 @@ import java.sql.SQLException;
  * @author marcio.morando
  */
 public class TestaConexao {
-    
- public static void main(String[] args) throws SQLException {  
-     Connection connection = new ConnectionFactory().getConnection(); 
-     System.out.println("Conexão ao banco de dados está ok Márcio!");        connection.close();  
- }
-}
 
+    public static void main(String[] args) throws SQLException {
+        Connection connection = new ConnectionFactory().getConnection();
+        System.out.println("Conexão ao banco de dados está ok Márcio!");
+        connection.close();
+    }
+}

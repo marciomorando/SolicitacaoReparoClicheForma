@@ -26,7 +26,7 @@ import javax.persistence.Transient;
  * @author marcio.morando
  */
 /*@Entity
-@Table(name = "SOPASTA_SolicitacaoReparoCliche", catalog = "TrimboxTeste", schema = "dbo")
+@Table(name = "SOPASTA_SolicitacaoReparoCliche", catalog = "Trimbox", schema = "dbo")
 @NamedQueries({
     @NamedQuery(name = "SOPASTASolicitacaoReparoCliche.findAll", query = "SELECT s FROM SOPASTASolicitacaoReparoCliche s"),
    

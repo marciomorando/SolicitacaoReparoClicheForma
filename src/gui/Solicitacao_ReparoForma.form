@@ -169,7 +169,6 @@
               <Component id="masterScrollPane" min="-2" pref="181" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="dataRetornoClicheField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -228,11 +227,13 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="observacaoField" min="-2" pref="75" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="ipMicroField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ipMicroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="hostMicroField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="hostMicroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ipMicroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="hostMicroField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="hostMicroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="horaRetornoClicheField" min="-2" max="-2" attributes="0"/>

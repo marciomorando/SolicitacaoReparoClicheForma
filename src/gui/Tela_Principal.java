@@ -20,91 +20,91 @@ import javax.swing.JOptionPane;
  * @author marcio.morando
  */
 public class Tela_Principal extends javax.swing.JFrame {
-    public static String  jTextField1;
-    
-    public static InetAddress getIP(boolean preferIpv4, boolean preferIPv6) throws SocketException {  
-        Enumeration en = NetworkInterface.getNetworkInterfaces();  
-        while (en.hasMoreElements()) {  
-            NetworkInterface i = (NetworkInterface) en.nextElement();  
-            for (Enumeration en2 = i.getInetAddresses(); en2.hasMoreElements();) {  
-                InetAddress addr = (InetAddress) en2.nextElement();  
-                if (!addr.isLoopbackAddress()) {  
-                    if (addr instanceof Inet4Address) {  
-                        if (preferIPv6) {  
-                            continue;  
-                        }  
-                        return addr;  
-                    }  
-                    if (addr instanceof Inet6Address) {  
-                        if (preferIpv4) {  
-                            continue;  
-                        }  
-                        return addr;  
-                    }  
-                }  
-            }  
-        }  
-        return null;  
-    }  
+
+    public static String jTextField1;
+
+    public static InetAddress getIP(boolean preferIpv4, boolean preferIPv6) throws SocketException {
+        Enumeration en = NetworkInterface.getNetworkInterfaces();
+        while (en.hasMoreElements()) {
+            NetworkInterface i = (NetworkInterface) en.nextElement();
+            for (Enumeration en2 = i.getInetAddresses(); en2.hasMoreElements();) {
+                InetAddress addr = (InetAddress) en2.nextElement();
+                if (!addr.isLoopbackAddress()) {
+                    if (addr instanceof Inet4Address) {
+                        if (preferIPv6) {
+                            continue;
+                        }
+                        return addr;
+                    }
+                    if (addr instanceof Inet6Address) {
+                        if (preferIpv4) {
+                            continue;
+                        }
+                        return addr;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 
     /**
      * Creates new form Tela_Principal
      */
-   
     public Tela_Principal() {
-        
+
         clsDataHora objDataHora = new clsDataHora();
-     
+
         initComponents();
-        
+
         jTextField3.setText(objDataHora.MostraData());
         jTextField4.setText(objDataHora.MostraHora());
-        
-          String inet = null;
+
+
+        String inet = null;
         try {
             inet = InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException ex) {
             Logger.getLogger(Tela_Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-     jTextField2.setText(inet);
+        jTextField2.setText(inet);
 
-        
-   if(ControleAcesso.Usuario == 6){
-       jMenu1.enable(true);
-       
-   }else if(ControleAcesso.Usuario == 32){
-       jMenu1.enable(true);
-       
-   }else if(ControleAcesso.Usuario == 44){//Clicheria
-      jMenu2.enable(false);
-      
-  
-   }else if(ControleAcesso.Usuario == 24){
-       jMenu1.enable(true);
-       
-   }else if(ControleAcesso.Usuario == 59){
-      jMenu1.enable(true);
-     
-      
-   }else if(ControleAcesso.Usuario == 1){
-       jMenu1.enable(true);
-      
-   }else if(ControleAcesso.Usuario == 3){ //Cvrotativas
-       jMenu1.enable(false);
-       jMenu4.enable(false);
-       jMenu2.enable(true);
-       //jMenu1.enable(false);
-   }else if(ControleAcesso.Usuario == 16){
-       jMenu1.enable(false);
-       jMenu4.enable(false);
-       jMenu2.enable(true);
-   } else{
-        jMenu1.enable(false);
-    }
-   
-   
-    }
 
+        if (ControleAcesso.Usuario == 6) {
+            jMenu1.enable(true);
+
+        } else if (ControleAcesso.Usuario == 32) {
+            jMenu1.enable(true);
+
+        } else if (ControleAcesso.Usuario == 44) {//Clicheria
+            jMenu2.enable(false);
+
+
+        } else if (ControleAcesso.Usuario == 24) {
+            jMenu1.enable(true);
+
+        } else if (ControleAcesso.Usuario == 59) {
+            jMenu1.enable(true);
+
+
+        } else if (ControleAcesso.Usuario == 1) {
+            jMenu1.enable(true);
+
+        } else if (ControleAcesso.Usuario == 3) { //Cvrotativas
+            jMenu1.enable(false);
+            jMenu4.enable(false);
+            jMenu2.enable(true);
+            //jMenu1.enable(false);
+        } else if (ControleAcesso.Usuario == 16) {
+            jMenu1.enable(false);
+            jMenu4.enable(false);
+            jMenu2.enable(true);
+        } else {
+            jMenu1.enable(false);
+        }
+
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,9 +122,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -144,7 +142,13 @@ public class Tela_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sopasta - Alteração de Cliche e Forma");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Desenvolvido por Sopasta - TI");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -166,14 +170,8 @@ public class Tela_Principal extends javax.swing.JFrame {
         jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Logo Sopasta png.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-
-        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel6.setText("SOLICITAÇÃO PARA REPARO DE CLICHÊ E FORMA");
-
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel7.setText("ALTERAÇÃO DO STATUS DE CLICHÊ E FORMA");
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sopastaaaa4.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
 
         jMenu1.setText("Alterar");
         jMenu1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -263,9 +261,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu3.setText("Opções");
-        jMenu3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem1.setText("Sair");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,54 +279,34 @@ public class Tela_Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(394, 394, 394)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(248, 248, 248)
-                                .addComponent(jLabel6)))
-                        .addGap(0, 242, Short.MAX_VALUE)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(271, 271, 271))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel5)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
@@ -342,35 +318,31 @@ public class Tela_Principal extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 366, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(1057, 638));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        Tela_Login tel = new Tela_Login();
-        tel.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
-                String args[] = new String[1];
-       args[0] = "Alteração de Cliche";
-     Altera_Cliche.main(args);
+        String args[] = new String[1];
+        args[0] = "Alteração de Cliche";
+        Altera_Cliche.main(args);
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-          String args[] = new String[1];
-       args[0] = "Alteração de Forma";
-     Altera_Forma.main(args);
+        String args[] = new String[1];
+        args[0] = "Alteração de Forma";
+        Altera_Forma.main(args);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -386,35 +358,43 @@ public class Tela_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-   
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-           String args[] = new String[1];
-       args[0] = "Solicitar Reparo de Clichê";
-     Solicitacao_ReparoCliche.main(args);
+        String args[] = new String[1];
+        args[0] = "Solicitar Reparo de Clichê";
+        Solicitacao_ReparoCliche.main(args);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         Visualizar_SolicitacaoCliche c = new Visualizar_SolicitacaoCliche();
         c.setVisible(true);
-       
+
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-            String args[] = new String[1];
-       args[0] = "Solicitar Reparo de Forma";
-     Solicitacao_ReparoForma.main(args);
+        String args[] = new String[1];
+        args[0] = "Solicitar Reparo de Forma";
+        Solicitacao_ReparoForma.main(args);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         Visualizar_SolicitacaoForma v = new Visualizar_SolicitacaoForma();
         v.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,12 +432,10 @@ public class Tela_Principal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
