@@ -106,7 +106,7 @@ public class Altera_Forma1 extends JPanel {
 
         masterScrollPane.setViewportView(masterTable);
 
-        idLabel.setText("Id:");
+        idLabel.setText("Número:");
 
         tipoMaterialLabel.setText("Tipo Material:");
 
@@ -484,6 +484,7 @@ public class Altera_Forma1 extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
+                frame.setTitle("SOPASTA - Altera Forma");
                 frame.setContentPane(new Altera_Forma1());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();

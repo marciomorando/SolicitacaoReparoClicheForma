@@ -707,6 +707,7 @@ public class Solicitacao_ReparoForma extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
+                frame.setTitle("SOPASTA - Solicitação de Reparo para Forma");
                 frame.setContentPane(new Solicitacao_ReparoForma());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();

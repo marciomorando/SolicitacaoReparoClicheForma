@@ -48,14 +48,17 @@ public class Tela_Login extends javax.swing.JFrame {
         
         fab.rs = fab.stmt.getResultSet();
         fab.rs.next();
-
+      
        ControleAcesso.setUsuario(Integer.parseInt(fab.rs.getString("usuario")));
+       
+      
  
        if(jTextField1.getText().toUpperCase().equals(login) && senha.equals(senha)){
           
             Tela_Principal tel = new Tela_Principal();
               tel.setVisible(true);
               this.setVisible(false);
+              Tela_Principal.jTextField5.setText(login);
      
         }else{
             //jTextField1.setText("");
@@ -86,6 +89,7 @@ public class Tela_Login extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SOPASTA - Tela de Login");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -173,14 +177,14 @@ public class Tela_Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

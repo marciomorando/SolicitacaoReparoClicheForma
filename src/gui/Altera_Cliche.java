@@ -204,7 +204,7 @@ public class Altera_Cliche extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -221,7 +221,7 @@ public class Altera_Cliche extends JPanel {
                                     .addComponent(saveButton))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(obsAlteracaoLabel)
-                                    .addGap(27, 27, 27)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(obsAlteracaoField, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
@@ -255,7 +255,7 @@ public class Altera_Cliche extends JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(masterScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -295,7 +295,10 @@ public class Altera_Cliche extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
+            if (evt.getSource() == clicheField) {
+                Altera_Cliche.this.clicheFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
                 Altera_Cliche.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
@@ -309,9 +312,6 @@ public class Altera_Cliche extends JPanel {
             }
             else if (evt.getSource() == jButton1) {
                 Altera_Cliche.this.jButton1ActionPerformed(evt);
-            }
-            else if (evt.getSource() == clicheField) {
-                Altera_Cliche.this.clicheFieldActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents
@@ -522,6 +522,7 @@ public class Altera_Cliche extends JPanel {
       
                 JFrame frame = new JFrame();
                 frame.setContentPane(new Altera_Cliche());
+                frame.setTitle("SOPASTA - Altera Clichê");
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);

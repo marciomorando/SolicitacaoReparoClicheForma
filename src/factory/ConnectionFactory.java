@@ -15,7 +15,7 @@ public class ConnectionFactory {
 
     public java.sql.Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:sqlserver://192.168.0.48:1433/Trimbox", "sopasta_ti", "ti_sopasta");
+            return DriverManager.getConnection("jdbc:sqlserver://192.168.0.48:1433/TrimboxTeste", "sopasta_ti", "ti_sopasta");
         } catch (SQLException excecao) {
             throw new RuntimeException(excecao);
         }

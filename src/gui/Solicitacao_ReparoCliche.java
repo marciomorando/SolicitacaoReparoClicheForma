@@ -756,6 +756,7 @@ public class Solicitacao_ReparoCliche extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
+                frame.setTitle("SOPASTA - Solicitação de Reparo para Clichê");
                 frame.setContentPane(new Solicitacao_ReparoCliche());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();

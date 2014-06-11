@@ -481,6 +481,7 @@ public class Altera_Forma extends JPanel {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new JFrame();
+                frame.setTitle("SOPASTA - Altera Forma");
                 frame.setContentPane(new Altera_Forma());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();

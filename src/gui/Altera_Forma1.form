@@ -232,7 +232,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="idLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id:"/>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="tipoMaterialLabel">
