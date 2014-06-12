@@ -384,7 +384,7 @@ public class Altera_Forma1 extends JPanel {
          fab.abrirConexao();
          
          if(statusField.getText().equals("I")){
-          String sql = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoAtivo2";   
+          String sql = "exec Trimbox.dbo.SP_AlteraPedidoStatus4Forma";   
           try{
                stmt = (Statement) conn.createStatement();
                     stmt.execute(sql);
@@ -397,10 +397,10 @@ public class Altera_Forma1 extends JPanel {
              
          } 
         else if(statusField.getText().equals("A")){
-        String sql = "UPDATE TrimboxTeste.dbo.SOPASTA_SolicitacaoReparoForma "
+        String sql = "UPDATE Trimbox.dbo.SOPASTA_SolicitacaoReparoForma "
                 + "SET Status = 'Fechada' WHERE Forma = '"+ formaField.getText() +"'  ";
         
-        String sql2 = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoInativo2";
+        String sql2 = "exec Trimbox.dbo.SP_AlteraPedidosStatus1Forma";
         
                 try {
                     stmt = (Statement) conn.createStatement();

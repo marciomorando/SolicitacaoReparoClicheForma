@@ -24,7 +24,7 @@ import javax.persistence.Transient;
  * @author marcio.morando
  */
 @Entity
-@Table(name = "filaConv", catalog = "TrimboxTeste", schema = "dbo")
+@Table(name = "filaConv", catalog = "Trimbox", schema = "dbo")
 @NamedQueries({
     @NamedQuery(name = "FilaConv.findAll", query = "SELECT f FROM FilaConv f"),
     @NamedQuery(name = "FilaConv.findByMaquina", query = "SELECT f FROM FilaConv f WHERE f.filaConvPK.maquina = :maquina"),

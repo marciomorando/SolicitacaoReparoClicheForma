@@ -19,7 +19,7 @@ public class FabricaDeConexao {
     public static Statement stmt;
     public static ResultSet rs;
     //String url = "jdbc:sqlserver://servidorsimula:1433/Trimbox";
-    String url = "jdbc:sqlserver://servidorsimula:1433;TrimboxTeste=TrimboxTeste";
+    String url = "jdbc:sqlserver://servidorsimula:1433;Trimbox=Trimbox";
     //String driver = "com.sqlserver.jdbc.Driver";
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     String user = "sopasta_ti";

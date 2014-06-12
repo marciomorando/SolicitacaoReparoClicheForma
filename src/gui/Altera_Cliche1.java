@@ -403,7 +403,7 @@ public class Altera_Cliche1 extends JPanel {
      
      
      if(statusField.getText().equals("I")){
-       String sql = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoAtivo";   
+       String sql = "exec Trimbox.dbo.SP_AlteraPedidosStatus4Cliche";   
           try{
                stmt = (Statement) conn.createStatement();
                     stmt.execute(sql);
@@ -415,10 +415,10 @@ public class Altera_Cliche1 extends JPanel {
      }
      
      else if(statusField.getText().equals("A")){
-        String sql = "UPDATE TrimboxTeste.dbo.SOPASTA_SolicitacaoReparoCliche "
+        String sql = "UPDATE Trimbox.dbo.SOPASTA_SolicitacaoReparoCliche "
                 + "SET Status = 'Fechada' WHERE Cliche = '"+ clicheField.getText() +"'  ";
         
-        String sql2 = "exec TrimboxTeste.dbo.SP_AlteraStatusPedidoInativo";
+        String sql2 = "exec Trimbox.dbo.SP_AlteraPedidosStatus1Cliche";
         
                 try {
                     stmt = (Statement) conn.createStatement();

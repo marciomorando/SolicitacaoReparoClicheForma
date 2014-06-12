@@ -24,7 +24,7 @@ import javax.persistence.Transient;
  * @author marcio.morando
  */
 @Entity
-@Table(name = "SOPASTA_StatusForma", catalog = "TrimboxTeste", schema = "dbo")
+@Table(name = "SOPASTA_StatusForma", catalog = "Trimbox", schema = "dbo")
 @NamedQueries({
     @NamedQuery(name = "SOPASTAStatusForma.findAll", query = "SELECT s FROM SOPASTAStatusForma s"),
     @NamedQuery(name = "SOPASTAStatusForma.findById", query = "SELECT s FROM SOPASTAStatusForma s WHERE s.id = :id"),
